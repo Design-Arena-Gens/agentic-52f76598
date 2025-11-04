@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Etsy T?Shirt Niches Playbook</title>
+    <meta name="description" content="Curated profitable Etsy t?shirt niches, filters, and ROI calculator to reach $3,000 with $0 ad spend." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="container">
+      <h1>Etsy T?Shirt Niches Playbook</h1>
+      <p class="muted">Find low?competition, high?intent t?shirt niches and plan a $3,000 month with $0 ad spend.</p>
+    </header>
+
+    <section class="container toolbar">
+      <div class="controls">
+        <input id="search" placeholder="Search niches, keywords, tags?" />
+        <select id="category">
+          <option value="">All categories</option>
+          <option>Evergreen</option>
+          <option>Occupation</option>
+          <option>Hobby</option>
+          <option>Cause</option>
+          <option>Event/Seasonal</option>
+          <option>Humor Format</option>
+          <option>Pet/Breed</option>
+          <option>Location/Micro?Local</option>
+        </select>
+        <label class="range">
+          <span>Min demand</span>
+          <input id="minDemand" type="range" min="0" max="100" step="5" value="50" />
+          <output id="minDemandOut">50</output>
+        </label>
+        <label class="range">
+          <span>Max competition</span>
+          <input id="maxCompetition" type="range" min="0" max="100" step="5" value="55" />
+          <output id="maxCompetitionOut">55</output>
+        </label>
+        <label>
+          <span>Price min</span>
+          <input id="priceMin" type="number" min="0" step="1" value="18" />
+        </label>
+        <label>
+          <span>Price max</span>
+          <input id="priceMax" type="number" min="0" step="1" value="30" />
+        </label>
+        <select id="sort">
+          <option value="score">Sort: Opportunity score</option>
+          <option value="demand">Sort: Demand</option>
+          <option value="competition">Sort: Lowest competition</option>
+          <option value="price">Sort: Highest price</option>
+          <option value="margin">Sort: Highest margin</option>
+        </select>
+      </div>
+      <div class="quick-filters">
+        <button data-qf="evergreen">Evergreen</button>
+        <button data-qf="lowcomp">Low competition (?40)</button>
+        <button data-qf="highmargin">High margin (?$12)</button>
+        <button data-qf="seasonal">Seasonal now</button>
+      </div>
+    </section>
+
+    <main class="container grid" id="grid"></main>
+
+    <section class="container playbook" id="playbook">
+      <h2>$0?Spend Growth Playbook to $3,000</h2>
+      <ol>
+        <li><strong>Product</strong>: Launch 12?18 designs across 3 niches; 3 styles each (tee, comfort colors, sweatshirt).</li>
+        <li><strong>Etsy SEO</strong>: Long?tail titles (80?120 chars), 13 tags, exact?match primary keyword in first 40 chars.</li>
+        <li><strong>Conversion</strong>: Mockups with real models, size chart image, 3 shipping badges, returns note.</li>
+        <li><strong>Pinterest</strong>: 5 pins/listing; daily pinning via scheduling; link to listing; niche boards.</li>
+        <li><strong>TikTok/IG Reels</strong>: 3 short videos per niche/week using social hooks included below.</li>
+        <li><strong>Reviews</strong>: Message buyers with thank?you note + size?fit follow?up to drive reviews.</li>
+        <li><strong>Compounding</strong>: Double down on SKUs with ?1 sale/week; add 5 variants next week.</li>
+      </ol>
+      <div class="roi">
+        <h3>ROI Calculator</h3>
+        <div class="roi-grid">
+          <label>Price ($) <input id="roiPrice" type="number" value="24" min="10" step="1" /></label>
+          <label>Unit cost ($) <input id="roiCost" type="number" value="12" min="7" step="0.5" /></label>
+          <label>Conv. rate (%) <input id="roiCr" type="number" value="2" min="0.3" max="10" step="0.1" /></label>
+          <label>Target revenue ($) <input id="roiTarget" type="number" value="3000" min="100" step="100" /></label>
+        </div>
+        <button id="roiCalc">Calculate</button>
+        <div class="roi-out" id="roiOut"></div>
+      </div>
+    </section>
+
+    <footer class="container muted">
+      <p>Built for fast validation. Data are curated heuristics, not guarantees.</p>
+    </footer>
+
+    <template id="cardTemplate">
+      <article class="card">
+        <div class="card-head">
+          <h3 class="title"></h3>
+          <span class="chip category"></span>
+        </div>
+        <p class="audience"></p>
+        <div class="metrics">
+          <span>Demand: <strong class="demand"></strong></span>
+          <span>Competition: <strong class="competition"></strong></span>
+          <span>Price: <strong class="price"></strong></span>
+          <span>Margin: <strong class="margin"></strong></span>
+          <span>Seasonality: <strong class="seasonality"></strong></span>
+        </div>
+        <div class="keywords"></div>
+        <details>
+          <summary>Angles, tags & ideas</summary>
+          <div class="angles"></div>
+          <div class="tags"></div>
+          <div class="ideas"></div>
+          <div class="hooks"></div>
+        </details>
+        <button class="btn-plan">Plan $3k in this niche</button>
+      </article>
+    </template>
+
+    <dialog id="planDialog">
+      <form method="dialog" class="dialog">
+        <h3 class="dialog-title"></h3>
+        <div class="dialog-body"></div>
+        <menu class="dialog-actions">
+          <button value="cancel">Close</button>
+        </menu>
+      </form>
+    </dialog>
+
+    <script src="./app.js" type="module"></script>
+  </body>
+</html>
